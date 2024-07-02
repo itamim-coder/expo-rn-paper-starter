@@ -1,22 +1,16 @@
 import { Redirect, Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 
-const AuthLayout = () => {
+const HomeLayout = () => {
   const isLogged = false;
 
   if (isLogged) return <Redirect href="/(tabs)" />;
 
   return (
     <>
-      <Stack >
+      <Stack>
         <Stack.Screen
-          name="sign-in"
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="sign-up"
+          name="index"
           options={{
             headerShown: false,
           }}
@@ -28,4 +22,4 @@ const AuthLayout = () => {
   );
 };
 
-export default AuthLayout;
+export default HomeLayout;
