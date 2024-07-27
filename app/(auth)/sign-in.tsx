@@ -16,7 +16,7 @@ export default function LoginScreen() {
   };
 
   return (
-    <View className="flex-1 justify-center p-4 bg-gray-100">
+    <View className="flex-1 justify-center p-4 ">
       <Text className="text-3xl font-bold text-center mb-6">Login</Text>
       <TVTextInput
         label="Email"
