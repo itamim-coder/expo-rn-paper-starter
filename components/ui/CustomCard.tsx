@@ -1,16 +1,22 @@
-import React from 'react';
-import { Image, View, Text, TouchableOpacity } from 'react-native';
-import { Card, Title, Paragraph } from 'react-native-paper';
+import React from "react";
+import { Image, View, Text, TouchableOpacity } from "react-native";
+import { Card, Title, Paragraph } from "react-native-paper";
 
 interface CustomCardProps {
   name: string;
   description: string;
-  image: string;
+  image?: string;
   onViewPress: () => void;
   onBookPress: () => void;
 }
 
-const CustomCard: React.FC<CustomCardProps> = ({ name, description, image, onViewPress, onBookPress }) => {
+const CustomCard: React.FC<CustomCardProps> = ({
+  name,
+  description,
+  image,
+  onViewPress,
+  onBookPress,
+}) => {
   return (
     <Card className="my-4 rounded-lg overflow-hidden shadow-lg">
       <Image source={{ uri: image }} className="w-full h-48" />

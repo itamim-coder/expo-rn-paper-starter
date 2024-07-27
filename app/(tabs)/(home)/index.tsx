@@ -5,6 +5,7 @@ import { Link, useRouter } from "expo-router";
 import CustomCard from "@/components/ui/CustomCard";
 import TVButton from "@/components/common/TVButton";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useUsersQuery } from "@/app/redux/api/usersApi";
 
 const hotels = [
   {
@@ -31,7 +32,8 @@ const hotels = [
 
 export default function HomeScreen() {
   const router = useRouter();
-
+  const { data: userData, isLoading } = useUsersQuery(undefined);
+  console.log(userData);
   const navigateToProfile = () => {
     router.push("/profile");
   };
@@ -41,13 +43,12 @@ export default function HomeScreen() {
       <ScrollView className="flex-1 bg-gray-100 p-4">
         <Text className="text-3xl font-bold text-center mb-6">Home</Text>
         <View className="mb-6">
-          {hotels.map((hotel) => (
-            <Link key={hotel.id} href={`/(details)/${hotel.id}`}>
+          {userData?.map((data) => (
+            <Link key={data.id} href={`/(details)/${data.id}`}>
               <CustomCard
-                key={hotel.id}
-                name={hotel.name}
-                description={hotel.description}
-                image={hotel.image}
+                key={data.id}
+                name={data.name}
+                description={data.phone}
                 onViewPress={() => alert(`More about ${hotel.name}`)}
                 onBookPress={() => alert(`Booked ${hotel.name}`)}
               />

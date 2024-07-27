@@ -16,7 +16,6 @@ instance.defaults.timeout = 60000;
 // Add a request interceptor
 instance.interceptors.request.use(
   function (config) {
-    // Do something before request is sent
     // const accessToken = getFromLocalStorage(authKey);
     // if (accessToken) {
     //   config.headers.Authorization = accessToken;
@@ -36,10 +35,13 @@ instance.interceptors.response.use(
   //@ts-ignore
   function (response) {
     const responseObject: ResponseSuccessType = {
-      data: response?.data?.data,
+      data: response?.data,
       meta: response?.data?.meta,
     };
-    console.log(response);
+    console.log(
+      "instance: if any data retrive in network tab but not in console for axios then check here",
+      response
+    );
     return responseObject;
   },
   async function (error) {

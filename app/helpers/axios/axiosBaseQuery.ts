@@ -2,7 +2,6 @@ import type { BaseQueryFn } from "@reduxjs/toolkit/query";
 import type { AxiosRequestConfig, AxiosError } from "axios";
 import { instance as axiosInstance } from "./axiosInstance";
 import { IMeta } from "@/types";
-// import { instance as axiosInstance } from "./axiosInstance";
 
 export const axiosBaseQuery =
   (
@@ -31,6 +30,7 @@ export const axiosBaseQuery =
         },
         withCredentials: true,
       });
+      console.log("baseQ", result);
       return result;
     } catch (axiosError) {
       let err = axiosError as AxiosError;
